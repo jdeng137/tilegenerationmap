@@ -10,112 +10,64 @@ This project creates an interactive web map that visualizes fire stations across
 
 ### Tileset 1: Custom Basemap
 ![Custom Basemap Layer](imgs/tileset1.png)
-*Custom designed basemap showing Seattle's street network and geographic features.*
 
 ### Tileset 2: Thematic Layer (Fire Stations Only)
 ![Fire Stations Thematic Layer](imgs/tileset2.png)
-*Thematic layer displaying only fire station locations without basemap context.*
 
 ### Tileset 3: Combined Layer (Basemap + Fire Stations)
 ![Combined Basemap and Fire Stations](imgs/tileset3.png)
-*Integrated layer combining the custom basemap with fire station data.*
 
 ### Tileset 4: Themed Mapbox Layer
 ![Themed Map Layer](imgs/tileset4.png)
-*Stylized themed map with enhanced visual design and fire station markers.*
 
 ## Geographic Area
-**Examined Region:** Seattle, Washington, United States
+**Examined Region:** Greater Seattle Area, Washington, United States
 
 **Center Coordinates:** -122.31987°W, 47.59379°N
 
-**Coverage Area:** [INSERT SPECIFIC COVERAGE AREA - e.g., "Greater Seattle metropolitan area including downtown, Capitol Hill, Queen Anne, Ballard, and surrounding neighborhoods"]
-
-**Spatial Extent:** [INSERT BOUNDING BOX COORDINATES if known]
+**Initial Zoom Level:** 12
 
 ## Available Zoom Levels
 
-### Tileset 1: Custom Basemap
-- **Zoom Range:** [INSERT ZOOM RANGE - e.g., "Zoom levels 10-16"]
-- **Optimal Viewing:** [INSERT OPTIMAL ZOOM - e.g., "Zoom level 12-14"]
-
-### Tileset 2: Thematic Layer (Fire Stations Only)
-- **Zoom Range:** [INSERT ZOOM RANGE]
-- **Optimal Viewing:** [INSERT OPTIMAL ZOOM]
-
-### Tileset 3: Combined Layer
-- **Zoom Range:** [INSERT ZOOM RANGE]
-- **Optimal Viewing:** [INSERT OPTIMAL ZOOM]
-
-### Tileset 4: Themed Mapbox Layer
-- **Zoom Range:** [INSERT ZOOM RANGE]
-- **Optimal Viewing:** [INSERT OPTIMAL ZOOM]
+All four tilesets follow the standard XYZ tile structure (`{z}/{x}/{y}.png`) and are stored as 256x256 pixel PNG tiles with the zoom levels 11-15.
 
 ## Tile Set Descriptions
 
 ### Tileset 1: Custom Basemap
-This tileset provides a custom-designed basemap for the Seattle area. It serves as the foundational cartographic layer, displaying essential geographic features such as streets, water bodies, parks, and neighborhood boundaries. The styling emphasizes clarity and readability, using a neutral color palette that allows overlay data to stand out. This basemap was generated to provide a unique alternative to standard commercial basemap options while maintaining professional cartographic standards.
+This custom-designed Mapbox basemap layer shows streets, water bodies, and geographic features of the Greater Seattle area. This basemap serves as the foundation layer with neutral styling designed by me (Jiali Deng). It can be toggled on/off independently to compare with the default Mapbox light basemap.
 
 ### Tileset 2: Thematic Layer - Fire Stations Only
-This thematic tileset contains only the fire station point data without any basemap context. It displays the locations of fire stations across Seattle as distinct markers or symbols. This layer is designed to be used as an overlay on top of other basemaps, allowing for maximum flexibility in map composition. The absence of background features ensures that fire station locations are the sole focus and can be easily integrated with various basemap styles depending on the use case.
+This thematic overlay layer displays only fire station locations without any basemap context. This layer isolates the fire station data and can be combined with any basemap for flexible visualization overall showing fire station point data across the Greater Seattle area.
 
 ### Tileset 3: Combined Layer
-This tileset integrates both the custom basemap (Tileset 1) and the fire station data (Tileset 2) into a single, cohesive layer. By combining these elements during the tile generation process rather than layering them in the browser, this approach can improve rendering performance and ensure visual consistency. The fire stations are styled to contrast effectively with the basemap, making them immediately visible while maintaining the overall cartographic aesthetic of the custom basemap design.
+This combined map layer combines the custom basemap (Tileset 1) with fire station data (Tileset 2) into a single pre-rendered tileset. This approach improves rendering performance by serving both the basemap and data layer together rather than loading them separately.
 
 ### Tileset 4: Themed Mapbox Layer
-This tileset presents a specially themed visualization that enhances the map's visual appeal and usability. It applies advanced styling techniques to both the basemap and fire station markers, potentially incorporating color schemes, custom icons, or design elements that create a distinctive look and feel. This layer demonstrates more sophisticated cartographic design principles and may include additional visual enhancements such as halos, shadows, or specialized symbology that makes the map both functional and aesthetically engaging.
+This tile set is a Mapbox-designed theme layer based on University of Washington colors. The styling uses coordinated color choices, labels, and visual design elements to reflect the UW theme. This layer loads as the default map view when the application opens.
 
 ## Primary Functions
 
-**Interactive Layer Switching:**
-- Toggle between four different tile layers using checkboxes
-- Real-time layer visibility control
-- Multiple layers can be displayed simultaneously for comparison
-
-**Map Controls:**
-- Zoom and pan navigation controls (bottom-right)
-- Scale bar showing distance in imperial units (bottom-left)
-- Responsive design that adapts to different screen sizes
-
-**Default View:**
-- Map loads centered on Seattle at zoom level 12
-- Themed Map (Tileset 4) is visible by default
-- Light Mapbox basemap provides underlying context
-
-## Technical Implementation
-
-**Tile Serving:**
-All custom tilesets are served from local asset directories following the standard XYZ tile structure:
-```
-assets/tileset_{n}/{z}/{x}/{y}.png
-```
-Where `n` is the tileset number (1-4), `z` is the zoom level, and `x`, `y` are the tile coordinates.
-
-**Layer Management:**
-Each tileset is loaded as a raster source and added as a separate layer, allowing independent control of visibility through the layer switcher interface.
+- **Layer Switching:** Toggle visibility of four different tile layers using checkboxes in the layer switcher
+- **Navigation Controls:** Zoom and pan controls located in the bottom-right corner
+- **Scale Bar:** Distance scale in imperial units (bottom-left)
+- **Default View:** Map centers on Greater Seattle at zoom level 12 with Themed Map layer visible by default
 
 ## Libraries and Technologies
 
 - **Mapbox GL JS (v3.18.1)** - Core mapping library for interactive web map rendering
-- **HTML5/CSS3** - Web interface structure and styling
-- **JavaScript (ES6)** - Map functionality and interactivity
+- **HTML/CSS** - Web interface structure and styling
+- **JavaScript** - Map functionality and layer switching interactivity
 
 ## Data Sources
 
-- **Fire Station Data:** [INSERT DATA SOURCE - e.g., "Seattle Fire Department, City of Seattle Open Data Portal"]
-- **Basemap Data:** [INSERT DATA SOURCE - e.g., "OpenStreetMap contributors"]
-- **Geographic Boundaries:** [INSERT DATA SOURCE]
-
-## Tile Generation Process
-
-[INSERT BRIEF DESCRIPTION OF TOOLS USED - e.g., "Tiles were generated using QGIS/Mapbox Studio/Tippecanoe with custom styling parameters"]
+- **Fire Station Data:** [https://data-seattlecitygis.opendata.arcgis.com/datasets/811aa344a72d44e88383ee0c4f3d25d9_0/explore?location=47.619160%2C-122.335881%2C12](https://data-seattlecitygis.opendata.arcgis.com/datasets/811aa344a72d44e88383ee0c4f3d25d9_0/explore?location=47.619160%2C-122.335881%2C12)
+- **Basemap Data:** Custom designed by Jiali Deng
 
 ## Acknowledgments
 
-- Map design and tile generation for GEOG [INSERT COURSE NUMBER]
-- [INSERT INSTRUCTOR NAME], University of Washington
-- [INSERT ANY OTHER ACKNOWLEDGMENTS]
+- Geography 458 w/ Professor Bo Zhao
+- University of Washington
 
 ## AI Disclosure
 
-[INSERT YOUR AI USAGE DISCLOSURE - e.g., "I used AI assistance (Claude/ChatGPT/GitHub Copilot) for debugging JavaScript code, optimizing layer switcher functionality, and formatting the README documentation. I did not use AI to generate the tiles or design the core cartographic elements. I understand all code implementations and can explain the tile generation process and design decisions made in this project."]
+Utilized AI to help debug and to help me integrate upper level Javascript and CSS features mentioned in the primary functions portion of this readme file.

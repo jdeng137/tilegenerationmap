@@ -26,39 +26,66 @@ map.on('load', () => {
     // Tileset 1 - Custom basemap
     map.addSource('basemap-tiles', {
         type: 'raster',
-        tiles: [
-            'assets/tileset_1/{z}/{x}/{y}.png'
-        ],
+        tiles: ['assets/tileset_1/{z}/{x}/{y}.png'],
         tileSize: 256,
-        attribution: 'Map tiles designed by Your Name'
+        attribution: 'Map tiles designed by Jiali Deng'
     });
-
+    
     map.addLayer({
         id: 'basemap',
         type: 'raster',
         source: 'basemap-tiles',
         layout: {
-            
+            'visibility': 'none'
         }
     });
-
-    // Tileset 2 - Thematic layer (polygons)
+    
+    // Tileset 2 - Thematic layer (fire stations only)
     map.addSource('thematic-tiles', {
         type: 'raster',
-        tiles: [
-            'assets/tileset_2/{z}/{x}/{y}.png'
-        ],
+        tiles: ['assets/tileset_2/{z}/{x}/{y}.png'],
         tileSize: 256,
-        attribution: 'Thematic data by Your Name'
+        attribution: 'Fire station data'
     });
-
+    
     map.addLayer({
         id: 'thematic',
         type: 'raster',
         source: 'thematic-tiles',
-        paint: {
-            'raster-opacity': 1.0
+        layout: {
+            'visibility': 'none'
         }
+    });
+    
+    // Tileset 3 - Combined basemap + fire stations
+    map.addSource('combined-tiles', {
+        type: 'raster',
+        tiles: ['assets/tileset_3/{z}/{x}/{y}.png'],
+        tileSize: 256,
+        attribution: 'Combined basemap and fire stations'
+    });
+    
+    map.addLayer({
+        id: 'combined',
+        type: 'raster',
+        source: 'combined-tiles',
+        layout: {
+            'visibility': 'none'
+        }
+    });
+    
+    // Tileset 4 - Themed Mapbox layer
+    map.addSource('themed-tiles', {
+        type: 'raster',
+        tiles: ['assets/tileset_4/{z}/{x}/{y}.png'],
+        tileSize: 256,
+        attribution: 'Themed map tiles'
+    });
+    
+    map.addLayer({
+        id: 'themed',
+        type: 'raster',
+        source: 'themed-tiles'
     });
 });
 </script>

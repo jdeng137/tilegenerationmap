@@ -36,7 +36,7 @@ All four tilesets follow the standard XYZ tile structure (`{z}/{x}/{y}.png`) and
 ### Tileset 1: Custom Basemap
 This custom-designed Mapbox basemap layer shows streets, water bodies, and geographic features of the Greater Seattle area. This basemap serves as the foundation layer with neutral styling designed by me (Jiali Deng). It can be toggled on/off independently to compare with the default Mapbox light basemap.
 
-### Tileset 2: Thematic Layer - Fire Stations Only
+### Tileset 2: Thematic Layer (Fire Stations Only)
 This thematic overlay layer displays only fire station locations without any basemap context. This layer isolates the fire station data and can be combined with any basemap for flexible visualization overall showing fire station point data across the Greater Seattle area.
 
 ### Tileset 3: Combined Layer

@@ -9,19 +9,19 @@ This project creates an interactive web map that visualizes fire stations across
 ## Screenshots
 
 ### Tileset 1: Custom Basemap
-![Custom Basemap Layer](img/tileset1.png)
+![Custom Basemap Layer](imgs/tileset1.png)
 *Custom designed basemap showing Seattle's street network and geographic features.*
 
 ### Tileset 2: Thematic Layer (Fire Stations Only)
-![Fire Stations Thematic Layer](img/tileset2.png)
+![Fire Stations Thematic Layer](imgs/tileset2.png)
 *Thematic layer displaying only fire station locations without basemap context.*
 
 ### Tileset 3: Combined Layer (Basemap + Fire Stations)
-![Combined Basemap and Fire Stations](img/tileset3.png)
+![Combined Basemap and Fire Stations](imgs/tileset3.png)
 *Integrated layer combining the custom basemap with fire station data.*
 
 ### Tileset 4: Themed Mapbox Layer
-![Themed Map Layer](img/tileset4.png)
+![Themed Map Layer](imgs/tileset4.png)
 *Stylized themed map with enhanced visual design and fire station markers.*
 
 ## Geographic Area

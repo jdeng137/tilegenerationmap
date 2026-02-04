@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Display a map on a webpage</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.18.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiamRlbmcxMzciLCJhIjoiY21oY3BwdGxtMW93bDJsb282bnl6bWl0NSJ9.t19u2LlOUGTPHQ7N82CpkA';
+const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: [-122.31987312542114, 47.59378735528869],
+    zoom: 12
+});
+
+map.on('load', () => {
+    // Tileset 1 - Custom basemap
+    map.addSource('basemap-tiles', {
+        type: 'raster',
+        tiles: [
+            'assets/tileset_1/{z}/{x}/{y}.png'
+        ],
+        tileSize: 256,
+        attribution: 'Map tiles designed by Your Name'
+    });
+
+    map.addLayer({
+        id: 'basemap',
+        type: 'raster',
+        source: 'basemap-tiles',
+        layout: {
+            
+        }
+    });
+
+    // Tileset 2 - Thematic layer (polygons)
+    map.addSource('thematic-tiles', {
+        type: 'raster',
+        tiles: [
+            'assets/tileset_2/{z}/{x}/{y}.png'
+        ],
+        tileSize: 256,
+        attribution: 'Thematic data by Your Name'
+    });
+
+    map.addLayer({
+        id: 'thematic',
+        type: 'raster',
+        source: 'thematic-tiles',
+        paint: {
+            'raster-opacity': 1.0
+        }
+    });
+});
+</script>
+</body>
+</html>
